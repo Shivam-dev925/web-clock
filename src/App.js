@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import TimeZoneDataLayer from "./contexts/TImeZoneContext";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import { GlobalStyleLayer } from "./styles/GlobalStyling";
+import Home from "./components/Home";
+import Stopwatch from "./components/Stopwatch";
+import Clocks from "./components/Clocks";
+import Timer from "./components/Timer";
+import About from "./components/About";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <GlobalStyleLayer />
+      <TimeZoneDataLayer>
+        <Router basename="/">
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/webClock/stopwatch" element={<Stopwatch />} />
+            <Route path="/webClock/clocks" element={<Clocks />} />
+            <Route path="/webClock/Timer" element={<Timer />} />
+            <Route path="/webClock/About" element={<About />} />
+          </Routes>
+        </Router>
+      </TimeZoneDataLayer>
     </div>
   );
 }
