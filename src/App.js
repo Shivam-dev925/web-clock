@@ -9,6 +9,7 @@ import Stopwatch from "./components/Stopwatch";
 import Clocks from "./components/Clocks";
 import Timer from "./components/Timer";
 import About from "./components/About";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/webClock/Timer" element={<Timer />} />
             <Route path="/webClock/About" element={<About />} />
           </Routes>
+          <Footer />
         </Router>
       </TimeZoneDataLayer>
     </div>

@@ -27,5 +27,8 @@ color:white ;
       cursor: pointer; 
   }
 
+img{
+  width:100% ;
+}
 
 `;

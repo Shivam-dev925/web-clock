@@ -5,7 +5,8 @@ import {
   faPlay,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import aos from "aos";
+import React, { useEffect, useState } from "react";
 import { Box, Circle } from "../styles/Styledcomponents";
 import "./Stopwatch.css";
 
@@ -19,6 +20,12 @@ function Stopwatch() {
     sec: 0,
     msec: 0,
   });
+
+  useEffect(() => {
+    aos.init({
+      duration: 3000,
+    });
+  }, []);
 
   const Start = () => {
     HandlePlay();
@@ -87,6 +94,7 @@ function Stopwatch() {
 
   return (
     <Box
+      data-aos="fade-in"
       position="relative"
       className="Stopwatch"
       width="100%"

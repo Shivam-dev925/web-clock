@@ -3,7 +3,7 @@ import { Box } from "../styles/Styledcomponents";
 import { Form } from "react-bootstrap";
 import { UseTimeZoneLayer } from "../contexts/TImeZoneContext";
 import "./Clock.css";
-
+import aos from "aos";
 function Clocks() {
   const {
     showZoneTime,
@@ -22,6 +22,11 @@ function Clocks() {
     analogSec: 0,
   });
 
+  useEffect(() => {
+    aos.init({
+      duration: 3000,
+    });
+  }, []);
   /* function AnalogClock() {
     let d = new Date();
     setAnalogTime({ analogSec: d.getSeconds() * 6 });
@@ -57,6 +62,7 @@ function Clocks() {
   };
   return (
     <Box
+      data-aos="fade-in"
       position="relative"
       className="clocks"
       width="100%"

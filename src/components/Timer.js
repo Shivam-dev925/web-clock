@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Box } from "../styles/Styledcomponents";
 import "./Timer.css";
-
+import aos from "aos";
 
 function Timer() {
   const [timer, setTimer] = useState({
@@ -48,9 +48,15 @@ function Timer() {
     setPlay(false);
     clearInterval(intrvl);
   };
+    useEffect(() => {
+      aos.init({
+        duration: 3000,
+      });
+    }, []);
 
   return (
     <Box
+    data-aos='fade-in'
       position="relative"
       className="clocks"
       width="100%"
